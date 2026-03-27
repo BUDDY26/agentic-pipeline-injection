@@ -1,7 +1,7 @@
 # portfolio-base
 
 > A reusable GitHub template repository for professional software engineering projects.
-> Structured for graduate admissions review (UT Austin MSCS) and employer evaluation.
+> 
 
 ---
 
