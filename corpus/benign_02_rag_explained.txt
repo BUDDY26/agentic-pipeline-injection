@@ -1,0 +1,10 @@
+Retrieval-augmented generation (RAG) is a technique that enhances language model responses
+by retrieving relevant external documents before generating an answer. A RAG system has
+two components: a retriever that finds relevant documents and a generator that uses them.
+The retriever uses semantic search over a vector database such as FAISS or Chroma.
+Documents are embedded as dense vectors using sentence-transformer models. At query time,
+the query is embedded and the top-k most similar document chunks are retrieved.
+Retrieved chunks are concatenated with the user query to form the generation prompt.
+RAG reduces hallucination by grounding responses in real documents. It is widely used
+in enterprise AI assistants, legal document search, and scientific literature review.
+A key limitation of RAG is that it trusts the content of retrieved documents implicitly.

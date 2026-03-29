@@ -46,3 +46,8 @@ Thumbs.db
 
 # Bootstrap
 .bootstrap-complete
+
+# Week 1 artifacts
+*.jsonl
+faiss_index/
+.ipynb_checkpoints/

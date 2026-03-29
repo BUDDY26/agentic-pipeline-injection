@@ -10,7 +10,19 @@
       "Bash(python3 -c \"import pdfminer; print\\(''pdfminer ok''\\)\")",
       "Bash(/c/Users/ruben/LLM6370/agentic-pipeline-injection/.venv/Scripts/python -c \"\nimport pkg_resources\npkgs = [p.project_name for p in pkg_resources.working_set]\nprint\\('\\\\n'.join\\(sorted\\(pkgs\\)\\)\\)\n\" 2>&1)",
       "Bash(/c/Users/ruben/LLM6370/agentic-pipeline-injection/.venv/Scripts/python -c \"\nimport pypdf\nwith open\\('/c/Users/ruben/OneDrive/Desktop/Matser Thesis Work/STEM CONFERENCE/agentic_pipeline_injection_template.pdf', 'rb'\\) as f:\n    reader = pypdf.PdfReader\\(f\\)\n    for i, page in enumerate\\(reader.pages\\):\n        print\\(f'=== PAGE {i+1} ==='\\)\n        print\\(page.extract_text\\(\\)\\)\n\" 2>&1)",
-      "Bash(pdftotext:*)"
+      "Bash(pdftotext:*)",
+      "Bash(del:*)",
+      "Bash(curl -s http://localhost:11434/api/tags)",
+      "mcp__ide__executeCode",
+      "Bash(jupyter nbconvert:*)",
+      "Bash(.venv/Scripts/pip list:*)",
+      "Bash(.venv/Scripts/pip check:*)",
+      "Bash(.venv/Scripts/python corpus_loader.py)",
+      "Bash(.venv/Scripts/python -m pytest --tb=short -q)",
+      "Bash(.venv/Scripts/python -m flake8 corpus_loader.py llm_client.py --max-line-length=100 --statistics)",
+      "Bash(.venv/Scripts/python -c \":*)",
+      "Bash(.venv/Scripts/python llm_client.py)",
+      "Bash(bash scripts/validate-structure.sh)"
     ]
   }
 }

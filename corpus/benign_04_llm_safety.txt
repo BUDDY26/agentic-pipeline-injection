@@ -1,0 +1,11 @@
+LLM safety research addresses the risks posed by large language models in deployment.
+Key safety concerns include hallucination, prompt injection, jailbreaking, and misuse.
+Prompt injection occurs when an attacker embeds instructions in external content that
+the model processes, causing the model to execute the attacker's instructions instead.
+Indirect prompt injection specifically targets retrieval-based systems: the attacker
+places adversarial instructions in documents that will be retrieved by the AI system.
+Defenses against prompt injection include input sanitization, sandboxed execution,
+and trust-scoring retrieved content before passing it to downstream agents.
+Security researchers have demonstrated prompt injection attacks against browser agents,
+email assistants, and document processing pipelines in real-world deployments.
+Robust safety evaluation requires testing across multiple pipeline topologies.

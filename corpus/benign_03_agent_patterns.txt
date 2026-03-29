@@ -1,0 +1,10 @@
+Agentic AI systems are composed of multiple LLM agents that collaborate to complete tasks.
+Common pipeline patterns include linear chains, parallel multi-agent systems, and RAG.
+In a linear chain, each agent processes the output of the previous agent sequentially.
+In a parallel system, multiple agents process the same input simultaneously and an
+aggregator combines their outputs into a final response.
+Frameworks for building agentic systems include LangChain, AutoGen, and CrewAI.
+LangChain provides abstractions for chains, memory, and retrieval. AutoGen supports
+multi-agent conversations with configurable roles and turn-taking logic.
+Each agent in a pipeline can have a different role: summarizer, analyst, formatter.
+Logging each agent output independently is critical for debugging and security analysis.

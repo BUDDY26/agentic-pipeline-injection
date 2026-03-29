@@ -1,0 +1,10 @@
+Machine learning is a subfield of artificial intelligence that enables systems to learn
+from data without being explicitly programmed. There are three main learning paradigms:
+supervised learning, unsupervised learning, and reinforcement learning. Supervised learning
+trains models on labeled data to make predictions. Unsupervised learning identifies hidden
+patterns in unlabeled data. Reinforcement learning trains agents through reward signals.
+Large language models (LLMs) are a class of deep learning models trained on text data.
+They use the transformer architecture and self-attention mechanisms to model language.
+LLMs are used for question answering, summarization, translation, and code generation.
+AI research assistants powered by LLMs can retrieve relevant documents and synthesize
+information to answer complex research questions accurately and efficiently.
