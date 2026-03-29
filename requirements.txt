@@ -1,0 +1,12 @@
+langchain==0.2.16
+langchain-community==0.2.16
+langchain-core==0.2.38
+langchain-groq==0.1.9
+faiss-cpu==1.8.0
+sentence-transformers==3.0.1
+openai==1.40.0
+groq==0.9.0
+python-dotenv==1.0.1
+jupyter==1.0.0
+pandas==2.2.2
+requests==2.32.3

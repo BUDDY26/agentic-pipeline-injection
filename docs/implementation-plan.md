@@ -1,7 +1,7 @@
 # Implementation Plan
 
 > **Status:** `{{PLAN_STATUS}}`  <!-- Draft | Active | Complete -->
-> **Last updated:** `{{LAST_UPDATED}}`
+> **Last updated:** `2026-03-27`
 > **Author:** `{{AUTHOR}}`
 
 ---
@@ -39,9 +39,9 @@
 
 | # | Task | Owner | Status |
 |---|------|-------|--------|
-| 1 | `{{TASK_1}}` | `{{OWNER}}` | `{{STATUS}}` |
-| 2 | `{{TASK_2}}` | `{{OWNER}}` | `{{STATUS}}` |
-| 3 | `{{TASK_3}}` | `{{OWNER}}` | `{{STATUS}}` |
+| 1 | `{{TASK_1}}` | `{{OWNER}}` | `Active Development` |
+| 2 | `{{TASK_2}}` | `{{OWNER}}` | `Active Development` |
+| 3 | `{{TASK_3}}` | `{{OWNER}}` | `Active Development` |
 
 ---
 
@@ -58,5 +58,5 @@
 
 - [ ] `{{VALIDATION_CRITERION_1}}`
 - [ ] `{{VALIDATION_CRITERION_2}}`
-- [ ] All tests pass (`{{TEST_COMMAND}}`)
+- [ ] All tests pass (`pytest tests/ -v`)
 - [ ] Documentation updated
