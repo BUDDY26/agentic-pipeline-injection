@@ -5,9 +5,9 @@ All metrics are computed from persisted .jsonl log files, never from live pipeli
 A valid Baseline run log must exist before any Injected run metric is computed.
 """
 
+import difflib
 import json
 import re
-import difflib
 from pathlib import Path
 
 THRESHOLD = 0.85
@@ -86,6 +86,7 @@ def propagation_depth(
     Returns:
         0 if no injection is detectable; N if the N-th hop (1-based) was last compromised.
     """
+
     def _load_post_generation(source):
         if isinstance(source, (str, Path)):
             outputs = []
