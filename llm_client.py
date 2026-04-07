@@ -21,7 +21,7 @@ def _call_ollama(prompt: str, system_prompt: str, max_tokens: int) -> str:
         'model':   OLLAMA_MODEL,
         'prompt':  full_prompt,
         'stream':  False,
-        'options': {'num_predict': max_tokens}
+        'options': {'num_predict': max_tokens, 'temperature': 0}
     }
     resp = requests.post(OLLAMA_URL, json=payload, timeout=120)
     resp.raise_for_status()
@@ -44,9 +44,10 @@ def _call_groq(prompt: str, system_prompt: str, max_tokens: int) -> str:
         'Content-Type':  'application/json'
     }
     payload = {
-        'model':      GROQ_MODEL,
-        'messages':   messages,
-        'max_tokens': max_tokens
+        'model':       GROQ_MODEL,
+        'messages':    messages,
+        'max_tokens':  max_tokens,
+        'temperature': 0
     }
     resp = requests.post(GROQ_API_URL, json=payload, headers=headers, timeout=60)
     resp.raise_for_status()

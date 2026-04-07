@@ -113,7 +113,7 @@ def run_rag_pipeline(run_id: str, retrieved: list) -> str:
         run_id=run_id, pipeline_type='rag', agent_id='rag_generator',
         entry_type='pre_generation', content=assembled_prompt,
         extra={'retrieved_chunks': [
-            {'rank': r['rank'], 'label': r['label'], 'document_id': r['document_id']}
+            {'rank': r['rank'], 'label': r['label'], 'document_id': r['document_id'], 'score': round(r['score'], 4)}
             for r in retrieved
         ]}
     )
@@ -144,7 +144,11 @@ def run_linear_pipeline(run_id: str, retrieved: list) -> str:
     )
     log_entry(run_id=run_id, pipeline_type='linear',
               agent_id='agent_1_summarizer', entry_type='pre_generation',
-              content=assembled_prompt)
+              content=assembled_prompt,
+              extra={'retrieved_chunks': [
+                  {'rank': r['rank'], 'label': r['label'], 'document_id': r['document_id'], 'score': round(r['score'], 4)}
+                  for r in retrieved
+              ]})
 
     agent1_output = llm_client.generate(
         prompt=assembled_prompt, system_prompt=agent1_system, max_tokens=512
@@ -191,12 +195,20 @@ def run_linear_pipeline(run_id: str, retrieved: list) -> str:
 
 
 def run_parallel_pipeline(run_id: str, retrieved: list) -> str:
-    """3 parallel agents + aggregator. Logs 4 post_generation entries."""
+    """3 parallel agents + aggregator. Logs 1 pre_generation + 4 post_generation entries."""
     context_block  = _build_context(retrieved)
     assembled_prompt = (
         f'Context documents:\n{context_block}\n\n'
         f'Question: {TEST_QUERY}'
     )
+
+    log_entry(run_id=run_id, pipeline_type='parallel',
+              agent_id='parallel_context', entry_type='pre_generation',
+              content=assembled_prompt,
+              extra={'retrieved_chunks': [
+                  {'rank': r['rank'], 'label': r['label'], 'document_id': r['document_id'], 'score': round(r['score'], 4)}
+                  for r in retrieved
+              ]})
 
     AGENTS = {
         'agent_A': 'Security Analyst',
@@ -253,12 +265,12 @@ def compute_metrics(run_id: str, baseline_run_id: str) -> dict:
     log_path      = LOG_DIR / f'{run_id}.jsonl'
     baseline_path = LOG_DIR / f'{baseline_run_id}.jsonl'
 
-    depth  = propagation_depth(str(baseline_path), str(log_path), threshold=THRESHOLD)
+    depth  = propagation_depth(str(baseline_path), str(log_path),
+                               artifact_strings=ARTIFACT_STRINGS, threshold=THRESHOLD)
     b_outs = load_post_gen(baseline_run_id)
     i_outs = load_post_gen(run_id)
     score  = integrity_score(b_outs[-1], i_outs[-1])
-    cs     = any(compromise_signal(o, ARTIFACT_STRINGS, baseline_output=b_outs[-1], threshold=THRESHOLD)
-                 for o in i_outs)
+    cs     = any(compromise_signal(o, ARTIFACT_STRINGS) for o in i_outs)
 
     return {
         'propagation_depth': depth,
