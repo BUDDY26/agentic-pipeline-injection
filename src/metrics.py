@@ -100,9 +100,8 @@ def propagation_depth(
     depth = 0
     for i, (b_out, i_out) in enumerate(zip(baseline_outputs, injected_outputs)):
         score = integrity_score(b_out, i_out)
-        literal_match = (
-            artifact_strings is not None
-            and any(re.search(re.escape(a), i_out) for a in artifact_strings)
+        literal_match = artifact_strings is not None and any(
+            re.search(re.escape(a), i_out) for a in artifact_strings
         )
         if score < threshold or literal_match:
             depth = i + 1  # 1-based index of last compromised hop
