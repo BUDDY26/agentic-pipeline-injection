@@ -31,24 +31,25 @@ agentic-pipeline-injection/
 │   └── metrics.py                   # integrity_score, compromise_signal, propagation_depth
 ├── notebooks/
 │   ├── notebook_01_rag.ipynb        # RAG pipeline topology
-│   ├── notebook_02_linear.ipynb     # Linear chain topology (+ executed copy)
-│   ├── notebook_03_parallel.ipynb   # Parallel fan-out topology (+ executed copy)
+│   ├── notebook_02_linear.ipynb     # Linear chain topology
+│   ├── notebook_03_parallel.ipynb   # Parallel fan-out topology
 │   └── notebook_04_experiments.ipynb # 9-configuration experiment matrix
-├── experiment_logs/                 # JSONL run logs (run_001–008, val_* series)
+├── experiment_logs/                 # val_*.jsonl validation logs + pre_audit/ archive
 ├── results/
-│   ├── taxonomy.csv                 # Week 3 quantitative results
-│   ├── charts/                      # PNG visualizations
-│   └── validation/                  # Week 4 multi-run validation artifacts
+│   ├── validation/                  # multi-run validation artifacts (canonical)
+│   ├── figures/                     # publication-quality figures (PNG + PDF)
+│   └── archive/pre_audit/           # superseded Week 3 taxonomy.csv and charts
 ├── scripts/
 │   ├── run_multi_validation.py      # 27-run validation driver
 │   ├── recompute_validation_metrics.py  # Metric recomputation from logs
-│   └── validate-structure.sh        # Repository structure conformance check
+│   └── generate_figures.py          # Figure generation from results CSV
 ├── docs/
 │   ├── architecture.md
 │   ├── implementation-plan.md
 │   ├── adr/
-│   ├── planning/                    # week1–week4 planning files
-│   └── reports/                     # advisor-progress-brief.md
+│   ├── qa/
+│   └── runbooks/
+├── tracking/                        # internal planning + progress reports (not public-facing)
 ├── requirements.txt
 └── .env.example
 ```
@@ -206,12 +207,11 @@ This project implements a controlled research framework for studying indirect pr
 
 ## 7. Known Issues / Sharp Edges
 
-- **Uncommitted Week 4 artifacts:** `docs/planning/week4.md`, `docs/reports/advisor-progress-brief.md`, `results/validation/` (3 files), `scripts/run_multi_validation.py`, and `scripts/recompute_validation_metrics.py` exist on disk but are not yet committed to git. The permanent repository record stops at Week 3 commit `c19caa5`. These must be committed before the project can be considered fully versioned.
-- **Governance documents were unfilled templates until 2026-04-03:** `docs/implementation-plan.md`, `docs/architecture.md`, and `docs/adr/ADR-001-template.md` contained only `{{PLACEHOLDER}}` tokens and template stubs. All three have now been filled with verified content. CLAUDE.md Sections 2, 6, 7, and 11 have also been updated.
-- **8-log vs. 9-configuration ambiguity:** The Week 3 experiment matrix specifies 9 configurations (3 topologies × 3 injection conditions), but only 8 original run log files exist (`run_001.jsonl`–`run_008.jsonl`). It is possible that one configuration (likely RAG baseline) was captured within a combined log or that the count reflects how runs were batched. This has not been resolved by reading log file headers; verify before citing the original run set as definitively 9 independent logs.
-- **FAISS index must not be rebuilt:** `faiss_index/index.faiss` and `faiss_index/index.pkl` were built once in Week 1 and are the reference for all 35 experiment logs (8 original + 27 validation). Rebuilding invalidates all prior logs by changing retrieval rank assignments.
-- **Stage-1 compromise signal is literal-match only:** `compromise_signal()` in `src/metrics.py` uses regex to detect the known injection string verbatim. If the LLM paraphrases the payload, Stage-1 returns False; Stage-2 (integrity threshold) partially compensates. Reported compromise signal rates are a lower bound on actual injection influence.
-- **No automated test suite:** `tests/unit/` and `tests/integration/` directories exist but contain no test files. Validation is entirely via experiment methodology.
+- **Pre-audit artifacts are archived, not deleted.** Week 3 pre-audit artifacts have been moved to `experiment_logs/pre_audit/` (original 8 `run_00*.jsonl` logs) and `results/archive/pre_audit/` (superseded `taxonomy.csv` and `charts/`). These are retained for provenance only. The canonical record is `experiment_logs/val_*.jsonl` (27 logs) and `results/validation/` + `results/figures/`. Do not cite pre-audit files as current evidence.
+- **FAISS index must not be rebuilt.** `faiss_index/index.faiss` and `faiss_index/index.pkl` were built once in Week 1 and are the reference for every experiment log in the repository. Rebuilding invalidates all prior logs by changing retrieval rank assignments.
+- **Stage-1 compromise signal is literal-match only.** `compromise_signal()` in `src/metrics.py` uses regex to detect the known injection string verbatim. Paraphrased payloads are not captured; reported `cs_rate` values are a lower bound on true injection influence. `integrity_score` partially compensates.
+- **No automated test suite.** `tests/unit/` and `tests/integration/` exist but contain no test files. Validation is performed entirely via the experiment methodology and the independent-recomputation path (`scripts/recompute_validation_metrics.py`).
+- **Internal process docs live in `tracking/`.** Week-by-week planning files and earlier progress reports have been moved out of `docs/` into `tracking/planning/` and `tracking/reports/`. They are not part of the public-facing documentation story.
 
 ---
 
@@ -334,6 +334,5 @@ If the user explicitly states **"suspend rule X for this session"**, that rule i
 ---
 
 <!-- TEMPLATE-MIRROR:FOOTER:START -->
-*Last updated by Claude: `2026-03-27`*
 *Entry protocol completed: `no — run on first session`*
 <!-- TEMPLATE-MIRROR:FOOTER:END -->

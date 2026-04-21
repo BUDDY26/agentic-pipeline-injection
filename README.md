@@ -150,8 +150,7 @@ Notebooks are in `notebooks/`: `notebook_01_rag.ipynb`, `notebook_02_linear.ipyn
 | Baseline control | `results/validation/baseline_stability.csv` | Baseline runs scored against themselves; verifies control stability |
 | Validation summary | `results/validation/validation_summary.md` | Narrative summary of validation results and documented limitations |
 | Experiment logs | `experiment_logs/val_*.jsonl` | Structured JSONL log for each individual run |
-| Taxonomy | `results/taxonomy.csv` | Classified injection outcomes across all configurations |
-| Charts | `results/charts/` | `propagation_depth_by_topology.png`, `compromise_signal_by_topology.png` |
+| Figures | `results/figures/` | Publication-quality figures (propagation depth, integrity score, compromise-signal rate, score stability) as PNG + PDF |
 
 ---
 
@@ -164,8 +163,7 @@ agentic-pipeline-injection/
 ├── experiment_logs/                     # Per-run JSONL logs (val_*.jsonl)
 ├── results/
 │   ├── validation/                      # multi_run_results.csv, baseline_stability.csv, validation_summary.md
-│   ├── taxonomy.csv                     # Injection outcome taxonomy
-│   └── charts/                          # Visualization outputs
+│   └── figures/                         # Publication-quality figures (PNG + PDF)
 ├── src/
 │   └── metrics.py                       # integrity_score, compromise_signal, propagation_depth
 ├── scripts/
@@ -184,7 +182,6 @@ agentic-pipeline-injection/
     ├── architecture.md                  # System architecture and component map
     ├── adr/                             # Architecture Decision Records
     ├── qa/                              # QA plan and coverage matrix
-    ├── reports/                         # Advisor and progress reports
     └── runbooks/                        # Operations runbook
 ```
 
@@ -206,7 +203,6 @@ agentic-pipeline-injection/
 | [`docs/architecture.md`](docs/architecture.md) | System architecture, component map, data flow, and known constraints |
 | [`docs/adr/`](docs/adr/) | Architecture Decision Records |
 | [`docs/qa/qa-plan.md`](docs/qa/qa-plan.md) | QA plan and test strategy |
-| [`docs/reports/advisor-progress-brief.md`](docs/reports/advisor-progress-brief.md) | Advisor progress brief |
 | [`docs/runbooks/operations.md`](docs/runbooks/operations.md) | Operations runbook |
 
 ---

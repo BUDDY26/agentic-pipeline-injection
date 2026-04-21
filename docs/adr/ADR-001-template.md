@@ -24,7 +24,7 @@ Implement exactly three pipeline topologies:
 
 2. **Linear Chain:** Three sequential agents where the output of each agent becomes the input context for the next. Injection propagates forward through the chain; propagation depth reflects how many agents downstream of the first are influenced.
 
-3. **Parallel Fan-Out:** Two independent agents each receive retrieved context simultaneously, and their outputs are concatenated and passed to a single aggregator agent. Injection can influence both parallel branches and the aggregator, yielding the highest possible propagation depth in this framework.
+3. **Parallel Fan-Out:** Three independent agents (Security Analyst, Systems Architect, Researcher) each receive retrieved context, and their outputs are passed to a single aggregator agent. Injection can influence any of the parallel branches and the aggregator, yielding the highest possible propagation depth in this framework.
 
 All three topologies use the same FAISS index, corpus, test query, LLM client, structured logger, and injection rank configurations (baseline, rank-1, rank-3).
 
@@ -32,7 +32,7 @@ All three topologies use the same FAISS index, corpus, test query, LLM client, s
 
 ## Rationale
 
-These three topologies were chosen because they represent structurally distinct propagation graphs. RAG has depth 0–1 (single agent, no downstream chain). Linear Chain has depth up to 3 (full chain traversal). Parallel has depth up to 4 (both branches plus aggregator). This spread enables the key research finding: propagation depth is topology-determined, not stochastic, and structural architecture is the primary risk variable.
+These three topologies were chosen because they represent structurally distinct propagation graphs. RAG has depth 0–1 (single agent, no downstream chain). Linear Chain has depth up to 3 (full chain traversal). Parallel has depth up to 4 (three parallel agents plus aggregator). This spread enables the key research finding: propagation depth is topology-determined, not stochastic, and structural architecture is the primary risk variable.
 
 A single topology would not support comparative analysis. More than three topologies within the project scope would exceed the available timeline without adding qualitatively distinct propagation structures.
 

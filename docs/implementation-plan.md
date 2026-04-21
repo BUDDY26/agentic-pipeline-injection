@@ -67,10 +67,10 @@ Design and validate a controlled research framework demonstrating indirect promp
 ## Validation
 
 - [x] Three pipeline topologies implemented and producing experiment logs
-- [x] 9-configuration experiment matrix complete (`results/taxonomy.csv` present)
+- [x] 9-configuration experiment matrix complete (pre-audit taxonomy archived at `results/archive/pre_audit/taxonomy.csv`)
 - [x] 27 multi-run validation runs complete (`results/validation/multi_run_results.csv` with 27 individual rows + 9 AGG rows)
 - [x] Baseline control integrity verified (`results/validation/baseline_stability.csv`: all 9 baseline runs show depth=0, score=1.0, cs=False, Status=PASS)
 - [x] Research limitations documented (`results/validation/validation_summary.md` Section 8: 5 limitations)
-- [x] Visualization charts present (`results/charts/compromise_signal_by_topology.png`, `results/charts/propagation_depth_by_topology.png`)
+- [x] Visualization figures present (`results/figures/` PNG + PDF; pre-audit charts archived at `results/archive/pre_audit/charts/`)
 - [ ] All tests pass (`pytest tests/ -v`) — Not applicable for current implementation; no automated test suite; validation performed via multi-run experiment methodology
 - [x] Documentation updated (`docs/architecture.md`, `docs/adr/ADR-001-template.md`, `CLAUDE.md`)

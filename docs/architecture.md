@@ -24,7 +24,7 @@ This project implements a controlled research framework for studying indirect pr
 | Logger | `structured_logger.py` | Writes structured JSONL entries to `experiment_logs/`; captures run_id, pipeline_type, agent_id, entry_type, content, and extra metadata per event |
 | Metrics module | `src/metrics.py` | Computes `integrity_score()` (difflib similarity between baseline and injected output), `compromise_signal()` (regex Stage-1 detection plus integrity threshold Stage-2), and propagation depth |
 | Experiment runner | `notebooks/notebook_04_experiments.ipynb`, `scripts/run_multi_validation.py` | Executes full 9-configuration matrix (3 topologies × 3 injection ranks) and 27-run multi-run validation; writes results to `results/` |
-| Output / taxonomy | `results/taxonomy.csv`, `results/validation/multi_run_results.csv`, `results/validation/baseline_stability.csv`, `results/charts/` | Stores quantitative results, aggregated validation metrics, baseline control verification, and visualization charts |
+| Output / taxonomy | `results/validation/multi_run_results.csv`, `results/validation/baseline_stability.csv`, `results/validation/validation_summary.md`, `results/figures/` | Stores aggregated validation metrics, baseline control verification, narrative summary, and publication-quality figures. Superseded pre-audit taxonomy and charts are retained under `results/archive/pre_audit/`. |
 
 ---
 
@@ -35,10 +35,10 @@ This project implements a controlled research framework for studying indirect pr
 3. **Agent execution**: Retrieved documents are passed as context to one or more LLM agents via `llm_client.generate()`. Topology determines agent count and routing:
    - RAG: single agent with retrieved context
    - Linear Chain: three sequential agents; output of each becomes input of the next
-   - Parallel: two independent agents whose outputs are concatenated and passed to an aggregator agent
+   - Parallel: three independent agents (Security Analyst, Systems Architect, Researcher) whose outputs are passed to an aggregator agent
 4. **Logging**: `structured_logger.log_entry()` writes a JSONL record for each agent invocation to `experiment_logs/`.
 5. **Scoring**: `src/metrics.py` reads agent outputs from logs and computes `integrity_score`, `compromise_signal`, and `propagation_depth` for each run.
-6. **Aggregation**: `notebook_04_experiments.ipynb` and `scripts/recompute_validation_metrics.py` collate per-run scores into `results/taxonomy.csv` and `results/validation/multi_run_results.csv`.
+6. **Aggregation**: `scripts/recompute_validation_metrics.py` collates per-run scores into `results/validation/multi_run_results.csv`; `scripts/generate_figures.py` renders figures into `results/figures/`.
 
 ---
 
