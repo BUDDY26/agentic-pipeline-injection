@@ -44,9 +44,6 @@ coverage/
 Thumbs.db
 *.log
 
-# Bootstrap
-.bootstrap-complete
-
 # Week 1 artifacts
 *.jsonl
 faiss_index/

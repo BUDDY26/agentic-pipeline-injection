@@ -11,7 +11,6 @@
 
 - [ ] Tests added or updated for changed behavior
 - [ ] All existing tests pass
-- [ ] Structure validation passes: `bash scripts/validate-structure.sh`
 
 ## Notes
 

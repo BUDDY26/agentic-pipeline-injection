@@ -106,9 +106,6 @@ pytest tests/ -v
 
 # Run linter + formatter
 ruff check src/ && black src/
-
-# Validate repository structure
-bash scripts/validate-structure.sh
 ```
 
 ---
