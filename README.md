@@ -245,7 +245,6 @@ agentic-pipeline-injection/
 |---|---|
 | [`docs/architecture.md`](docs/architecture.md) | System architecture, component map, data flow, and known constraints |
 | [`docs/adr/`](docs/adr/) | Architecture Decision Records |
-| [`docs/qa/qa-plan.md`](docs/qa/qa-plan.md) | QA plan and test strategy |
 | [`docs/runbooks/operations.md`](docs/runbooks/operations.md) | Operations runbook |
 
 ---

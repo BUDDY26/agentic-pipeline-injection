@@ -75,7 +75,7 @@ Key decisions are documented in [`docs/adr/`](adr/).
 
 | ADR | Title | Status |
 |-----|-------|--------|
-| [ADR-001](adr/ADR-001-template.md) | Use three pipeline topologies (RAG, Linear Chain, Parallel) | Accepted |
+| [ADR-001](adr/ADR-001-three-pipeline-topologies.md) | Use three pipeline topologies (RAG, Linear Chain, Parallel) | Accepted |
 
 ---
 

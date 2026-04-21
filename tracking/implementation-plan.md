@@ -73,4 +73,4 @@ Design and validate a controlled research framework demonstrating indirect promp
 - [x] Research limitations documented (`results/validation/validation_summary.md` Section 8: 5 limitations)
 - [x] Visualization figures present (`results/figures/` PNG + PDF; pre-audit charts archived at `results/archive/pre_audit/charts/`)
 - [ ] All tests pass (`pytest tests/ -v`) — Not applicable for current implementation; no automated test suite; validation performed via multi-run experiment methodology
-- [x] Documentation updated (`docs/architecture.md`, `docs/adr/ADR-001-template.md`, `CLAUDE.md`)
+- [x] Documentation updated (`docs/architecture.md`, `docs/adr/ADR-001-three-pipeline-topologies.md`, `CLAUDE.md`)

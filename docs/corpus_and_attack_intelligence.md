@@ -1,8 +1,7 @@
 # Corpus and Attack Intelligence Report
-**Project:** agentic-pipeline-injection
-**Date:** 2026-04-08
-**Mode:** Read-only intelligence gather — no experiments executed, no files modified
-**Sources searched:** corpus/, faiss_index/, experiment_logs/, scripts/, notebooks/, src/, all .py, .ipynb, .md, .jsonl, .csv, .txt files
+
+**Project:** agentic-pipeline-injection — technical analysis of the research corpus, the adversarial payload, retrieval dynamics, and the attacker access model.
+**Author:** Ruben Aleman
 
 ---
 
@@ -713,4 +712,3 @@ Evidence: The injection mechanism operates entirely through the content of the r
 
 ---
 
-*Report generated: 2026-04-08 | Source: exhaustive read of all repo files | No experiments executed | No files modified.*

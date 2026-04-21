@@ -144,7 +144,7 @@ Each layer is authoritative over everything below it. If code and documentation 
 | Evidence ledger | `docs/evidence.md` *(if applicable)* | Confirmed facts extracted from external sources; separates evidence from assumptions |
 | Architecture | `docs/architecture.md` | System design, component map, data flow |
 | ADRs | `docs/adr/*.md` | Binding architectural decisions with documented rationale |
-| Implementation plan | `docs/implementation-plan.md` *(if applicable)* | Coding order, module scope, deliverables |
+| Implementation plan | `tracking/implementation-plan.md` *(if applicable)* | Coding order, module scope, deliverables |
 | Code | `src/` | Implementation — must conform to all layers above |
 
 ### Rules
@@ -168,7 +168,7 @@ Do not silently deviate from the plan. Do not edit governance documents without 
 
 ## 5. Implementation Plan Authority
 
-`docs/implementation-plan.md` is the authoritative coding guide for this repository when present.
+`tracking/implementation-plan.md` is the authoritative coding guide for this repository when present.
 
 ### Status During Coding Passes
 
@@ -244,11 +244,7 @@ This project implements a controlled research framework for studying indirect pr
 |----------|----------|-------------|
 | Architecture Overview | `docs/architecture.md` | Full system design and component breakdown |
 | ADR Index | `docs/adr/` | All architectural decision records |
-| Implementation Plan | `docs/implementation-plan.md` | Coding order and module scope (create when applicable) |
-| QA Plan | `docs/qa/qa-plan.md` | Test strategy and coverage map |
-| QA Audit Record | `docs/qa/QA.md` | Permanent record of QA audit findings and verification results |
 | Operations Runbook | `docs/runbooks/operations.md` | Setup, deployment, and troubleshooting |
-| API Reference | `docs/api-reference.md` | Endpoint documentation (create when applicable) |
 
 ---
 

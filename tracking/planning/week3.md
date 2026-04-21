@@ -1,7 +1,7 @@
 # Week 3 Planning — Metrics Module + Full Experiment Runs
 
 **Project:** agentic-pipeline-injection
-**Authority:** docs/reference/timeline_prompt_injection_research.pdf (Days 15–21, ~12–14 hours, Build Phases 5 & 6), docs/reference/agentic_pipeline_injection_template.pdf (Sections 7–10), docs/reference/implementation_reference.pdf (Section 1 directory + Makefile)
+**Authority:** tracking/reference/timeline_prompt_injection_research.pdf (Days 15–21, ~12–14 hours, Build Phases 5 & 6), tracking/reference/agentic_pipeline_injection_template.pdf (Sections 7–10), tracking/reference/implementation_reference.pdf (Section 1 directory + Makefile)
 **Status:** Week 3 — Execution / Experimentation (Week 2 complete and verified)
 **Last updated:** 2026-03-30
 

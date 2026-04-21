@@ -1,7 +1,7 @@
 # Week 4 Planning — Poster Design, Polish, and Rehearsal
 
 **Project:** agentic-pipeline-injection
-**Authority:** docs/reference/timeline_prompt_injection_research.pdf (Days 22–28, ~10–12 hours, Week 4), docs/reference/agentic_pipeline_injection_template.pdf (Sections 10–11), docs/reference/abstract_final_v3.pdf, docs/reference/speaker_reference_chuprov.pdf
+**Authority:** tracking/reference/timeline_prompt_injection_research.pdf (Days 22–28, ~10–12 hours, Week 4), tracking/reference/agentic_pipeline_injection_template.pdf (Sections 10–11), tracking/reference/abstract_final_v3.pdf, tracking/reference/speaker_reference_chuprov.pdf
 **Status:** Week 4 — Ready to Begin (Week 3 complete and verified via audit + gate)
 **Last updated:** 2026-03-31
 

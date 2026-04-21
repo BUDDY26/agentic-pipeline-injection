@@ -1,7 +1,7 @@
 # Week 2 Planning — Linear Chain + Parallel Pipelines
 
 **Project:** agentic-pipeline-injection
-**Authority:** docs/reference/week2_guide.pdf (Days 8–14, ~12–14 hours, Build Phases 3 & 4)
+**Authority:** tracking/reference/week2_guide.pdf (Days 8–14, ~12–14 hours, Build Phases 3 & 4)
 **Status:** Ready to begin — Week 1 complete and verified
 **Last updated:** 2026-03-29
 

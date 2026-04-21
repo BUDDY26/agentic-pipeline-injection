@@ -8,38 +8,6 @@ reference for routine tasks and common recovery paths.
 
 ---
 
-## Quick Reference
-
-| Task | Command |
-|------|---------|
-| Install dependencies | `pip install -r requirements.txt` |
-| Configure environment | `cp .env.example .env` |
-| Pull the local LLM | `ollama pull llama3.1:8b` |
-| Run the 27-run validation matrix | `python scripts/run_multi_validation.py` |
-| Recompute metrics from existing logs | `python scripts/recompute_validation_metrics.py` |
-| Regenerate figures from results CSV | `python scripts/generate_figures.py` |
-
----
-
-## Environment Variables
-
-See `.env.example` for the full list.
-
-| Variable | Purpose | Required |
-|----------|---------|----------|
-| `OLLAMA_BASE_URL` | Ollama endpoint (default `http://localhost:11434`) | No |
-| `GROQ_FALLBACK` | `0` = use Ollama (default); `1` = use Groq | No |
-| `GROQ_API_KEY` | Groq API key | Only if `GROQ_FALLBACK=1` |
-
----
-
-## Prerequisites
-
-- Python 3.11
-- Ollama running locally with `llama3.1:8b` pulled
-
----
-
 ## Troubleshooting
 
 **FAISS index missing or modified.** The index under `faiss_index/` is locked
