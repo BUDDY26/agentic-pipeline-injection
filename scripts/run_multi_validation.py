@@ -49,11 +49,6 @@ LOG_DIR        = ROOT / 'experiment_logs'
 VALIDATION_DIR = ROOT / 'results' / 'validation'
 VALIDATION_DIR.mkdir(parents=True, exist_ok=True)
 
-# ---- Load FAISS index once ------------------------------------------
-print('Loading FAISS index...')
-index, records, model_name = cl.load_index()
-print(f'  Index loaded: {index.ntotal} vectors, model={model_name}')
-
 
 # =====================================================================
 # Retrieval helpers
@@ -302,6 +297,11 @@ CONFIGS = [
 # =====================================================================
 
 def main():
+    global index, records, model_name
+    print('Loading FAISS index...')
+    index, records, model_name = cl.load_index()
+    print(f'  Index loaded: {index.ntotal} vectors, model={model_name}')
+
     all_rows = []
 
     # Track baseline run_ids per topology for metric computation
